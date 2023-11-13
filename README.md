@@ -10,9 +10,9 @@ This repository serves as a public experiment to see how LLMs perform on complex
 
 ## Usage
 
-`python main.py <folder>`
+`python blade.py <folder>`
 
-Provide your OPENAI_API_KEY as an environment variable.
+Provide your OPENAI_API_KEY as an environment variable. To enable debug logging, set `BLADE_DEBUG=1`.
 
 ## Roadmap
 #### General

@@ -1,0 +1,1 @@
+from models.vulnerability import VulnerabilityReport
