@@ -2,7 +2,7 @@
 
 Automated vulnerability detection for CTF challenges, inspired by [Katana](https://github.com/JohnHammond/katana).
 
-![](/static/demo.gif)
+[![asciicast](https://asciinema.org/a/620655.svg)](https://asciinema.org/a/620655)
 
 Blade is built with LLM agents that can semantically reason about code and invoke external actions such as browsing past CTF writeups or digging into source code of internal libraries. 
 
