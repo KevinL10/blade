@@ -1,6 +1,6 @@
 # Blade 
 
-Automated vulnerability detection for CTF challenges, inspired by [Katana](https://github.com/JohnHammond/katana).
+Automated exploitation for cryptography challenges in CTFs.
 
 [![asciicast](https://asciinema.org/a/620655.svg)](https://asciinema.org/a/620655)
 
