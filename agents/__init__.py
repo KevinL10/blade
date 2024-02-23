@@ -1,1 +1,4 @@
-from agents.simple_agent import SimpleAgent
+from agents.crypto_agent import CryptoAgent
+
+
+DefaultAgent = CryptoAgent

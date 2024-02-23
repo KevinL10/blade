@@ -12,7 +12,10 @@ This repository serves as a public experiment to see how LLMs perform on complex
 
 ## Usage
 
-`python blade.py <folder>`
+To run blade on a challenge file, run:
+`python blade.py <file>`
+
+Static constant files such as *output.txt* are not yet supported. Please combine all of your additional files into a single main file.
 
 Provide your OPENAI_API_KEY as an environment variable. To enable debug logging, set `BLADE_DEBUG=1`.
 
