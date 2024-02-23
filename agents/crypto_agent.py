@@ -42,6 +42,7 @@ when identifying and exploiting the vulnerability.
         for var_name, var_value in constant_vars.items():
             script = script.replace('"{' + var_name + '}"', str(var_value))
             script = script.replace('\'{' + var_name + '}\'', str(var_value))
+            script = script.replace('{' + var_name + '}', str(var_value))
 
         print("[x] Generated script:")
         print(script)
@@ -49,8 +50,14 @@ when identifying and exploiting the vulnerability.
 
         # save and execute
         with open("/tmp/blade.sage", "w") as f:
+            # gpt-4 often forgets to include imports, which we can pre-include
+            f.write("""
+from sage.all import *
+from Crypto.Util.number import *
+""")
             f.write(script.strip())
 
-        result = subprocess.run(['sage', "/tmp/blade.sage"], capture_output=True).stdout.decode()
-        print("Script execution result:", result)
-        return result.strip()
+        result = subprocess.run(['sage', "/tmp/blade.sage"], capture_output=True)
+        print("[x] Script execution sterr:", result.stderr.decode())
+        print("[x] Script execution stdout:", result.stdout.decode())
+        return result.stdout.decode().strip()
