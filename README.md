@@ -30,29 +30,39 @@ Current roadmap:
 
 We run `blade.py` on each challenge up to 5 times and mark a challenge as `solved` if any of the 5 executions directly print the CTF flag.
 
+Blade only supports static challenges with a single source file and constants file.
+
 | Challenge                    | Status  |
 | ---------------------------- | ------- |
 | **Public Exponent**          |         |
 | Salty                        | ✔️ Solved  |
 | Modulus Inutilis             | ✔️ Solved |
-| Everything is Big            | Unknown |
-| Crossed Wires                | Unknown |
-| Everything is Still Big      | Unknown |
-| Endless Emails               | Unknown |
+| Everything is Big            | ❌ Unsolved |
+| Crossed Wires                | Unsupported |
+| Everything is Still Big      | ❌ Unsolved |
+| Endless Emails               | Unsupported |
 | **Primes Part 2**            |
-| Infinite Descent             | Unknown |
-| Marin's Secrets              | Unknown |
-| Fast Primes                  | Unknown |
-| Ron was Wrong, Whit is Right | Unknown |
-| RSA Backdoor Viability       | Unknown |
+| Infinite Descent             | ❌ Unsolved |
+| Marin's Secrets              | ❌ Unsolved |
+| Fast Primes                  | Unsupported |
+| Ron was Wrong, Whit is Right | Unsupported |
+| RSA Backdoor Viability       | ❌ Unsolved |
 | **Padding**                  |
-| Bespoke Padding              | Unknown |
-| Null or Never                | Unknown |
+| Bespoke Padding              | Unsupported |
+| Null or Never                | ❌ Unsolved |
 | **Signatures Part 1**        |
-| Signing Server               | Unknown |
-| Let's Decrypt                | Unknown |
-| Blinding Light               | Unknown |
+| Signing Server               | Unsupported |
+| Let's Decrypt                | Unsupported |
+| Blinding Light               | Unsupported |
 | **Signatures Part 2**        |
-| Vote for Pedro               | Unknown |
-| Let's Decrypt Again          | Unknown |
+| Vote for Pedro               | Unsupported |
+| Let's Decrypt Again          | Unsupported |
 
+
+### TODO
+
+RSA challenges:
+- [ ] Improve constant substition into file
+- [ ] Separate vulnerability detection from exploitation
+- [ ] Build library of common vulnerabilities + match on natural language descriptions
+- [ ] Support communication with server
