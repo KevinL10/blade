@@ -18,18 +18,42 @@ class CryptoAgent(BaseAgent):
         print(chall_code)
 
         completion = self.client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4-0125-preview",
             messages = [
                 {"role": "system", "content": "You are an expert in cryptography and SageMath"},
                 {"role": "user", "content": f"""
-You are given the source code for a cryptography problem in the triple backticks below. Please identify the cryptographic vulnerability and write a corresponding SageMath script in Python 3 syntax to recover the unknown FLAG variable. 
-                 
+You are provided with the source code related to an RSA cryptography problem, enclosed within the triple backticks below. Your task is to analyze the code and identify the cryptographic vulnerability to recover the unknown FLAG variable.
+
+Please note:
+- There is a known vulnerability that can be exploited without extensive brute-force attacks on the RSA parameters.
+- Focus on the unique construction of the RSA values presented in the code, such as bit lengths and algebraic relationships
+
+Approach the problem methodically, breaking down your analysis into clear, step-by-step explanations. Your response should be concise and outline the exact vulnerability required to recover the FLAG variable.
+```
+{chall_code}                 
+```              
+"""}
+            ]
+        )
+        vulnerability_description = completion.choices[0].message.content
+        
+        print(f"{COLOR.YELLOW}[x] Vulnerability description: {COLOR.RESET}")
+        print(vulnerability_description)
+        # exit()
+        
+        completion = self.client.chat.completions.create(
+            model="gpt-4-0125-preview",
+            messages = [
+                {"role": "system", "content": "You are an expert in cryptography and SageMath"},
+                {"role": "user", "content": f"""                 
+You are provided with the source code related to an RSA cryptography problem, enclosed within the triple backticks below. Given the following vulnerability description, please write a SageMath exploit in Python 3 syntax to recover the unknown FLAG variable
+
 IMPORTANT:
 - Implement only a SageMath function solve() that takes in the constant variables as parameters and returns the value of the recovered flag
 - Do not call this solve() function in your SageMath script
 - Do not brute force the solution. Your script must be practically feasible.
-
-Think step by step when identifying and exploiting the vulnerability.
+         
+Description: {vulnerability_description}
 
 ```
 {chall_code}                 
@@ -37,7 +61,9 @@ Think step by step when identifying and exploiting the vulnerability.
 """}
             ]
         )
+
         response = completion.choices[0].message.content
+
         print(f"{COLOR.GREEN}[x] Response: {COLOR.RESET}")
         print(response)
 

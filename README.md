@@ -1,4 +1,4 @@
-# Blade 
+# Blade
 
 Automated exploitation for cryptography challenges in CTFs.
 
@@ -7,7 +7,6 @@ Automated exploitation for cryptography challenges in CTFs.
 <!-- [![asciicast](https://asciinema.org/a/620655.svg)](https://asciinema.org/a/620655) -->
 
 Blade is built with LLM agents that semantically reason about code and can invoke external actions such as browsing past CTF writeups or digging into source code of internal libraries. Blade is currently built on top of GPT-4, but we have plans to finetune custom models for all parts of the process.
-
 
 ## Usage
 
@@ -19,6 +18,7 @@ Provide your OPENAI_API_KEY as an environment variable. To enable debug logging,
 ## Benchmarks
 
 We use the [CryptoHack](https://cryptohack.org/challenges/rsa/) challenges as the primary benchmark, because:
+
 - CryptoHack challenges are high-quality and feature a wide range of difficulties
 - There are no publicly available solutions, hence no training data contamination
 
@@ -32,12 +32,12 @@ We run `blade.py` on each challenge up to 5 times and mark a challenge as `solve
 
 Blade only supports static challenges with a single source file and constants file.
 
-| Challenge                    | Status  |
-| ---------------------------- | ------- |
-| **Public Exponent**          |         |
-| Salty                        | ✔️ Solved  |
-| Modulus Inutilis             | ✔️ Solved |
-| Everything is Big            | ❌ Unsolved |
+| Challenge                    | Status      |
+| ---------------------------- | ----------- |
+| **Public Exponent**          |             |
+| Salty                        | ✔️ Solved   |
+| Modulus Inutilis             | ✔️ Solved   |
+| Everything is Big            | ✔️ Solved   |
 | Crossed Wires                | Unsupported |
 | Everything is Still Big      | ❌ Unsolved |
 | Endless Emails               | Unsupported |
@@ -58,10 +58,10 @@ Blade only supports static challenges with a single source file and constants fi
 | Vote for Pedro               | Unsupported |
 | Let's Decrypt Again          | Unsupported |
 
-
 ### TODO
 
 RSA challenges:
+
 - [ ] Improve constant substition into file
 - [ ] Separate vulnerability detection from exploitation
 - [ ] Build library of common vulnerabilities + match on natural language descriptions
