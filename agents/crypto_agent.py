@@ -1,6 +1,5 @@
-from agents.base_agent import BaseAgent
-from openai import OpenAI
 from utils.enums import COLOR
+from agents.base_agent import BaseAgent
 from agents.detection import Detection
 from agents.exploitation import Exploitation
 
@@ -8,7 +7,6 @@ from agents.exploitation import Exploitation
 class CryptoAgent(BaseAgent):
     def __init__(self, source_filepath: str, constants_filepath: str):
         super().__init__()
-        self.client = OpenAI()
 
         with open(source_filepath, "r") as f:
             self.source_code = f.read()
