@@ -6,8 +6,8 @@ def main():
 
     source_file = f"data/cryptohack/{chall}/main.py"
     constants_file = f"data/cryptohack/{chall}/output.txt"
-    agent = DefaultAgent()
-    agent.run(source_file, constants_file)
+    agent = DefaultAgent(source_file, constants_file)
+    agent.run()
 
 
 if __name__ == "__main__":
